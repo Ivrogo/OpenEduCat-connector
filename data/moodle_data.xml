@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_moodle_connector_form" model="ir.ui.view">
+        <field name="name">moodle.connector.form</field>
+        <field name="model">moodle.connector</field>
+        <field name="arch" type="xml">
+            <form string="Moodle Connector">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="moodle_url"/>
+                        <field name="moodle_token"/>
+                    </group>
+                    <footer>
+                        <button name="sync_students" type="object" string="Sync Students" class="oe_highlight"/>
+                        <button name="sync_courses" type="object" string="Sync Courses" class="oe_highlight"/>
+                        <button name="sync_grades" type="object" string="Sync Grades" class="oe_highlight"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_moodle_connector" model="ir.actions.act_window">
+        <field name="name">Moodle Connector</field>
+        <field name="res_model">moodle.connector</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_moodle_connector" name="Moodle Connector" parent="base.menu_custom" action="action_moodle_connector"/>
+</odoo>
